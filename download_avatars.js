@@ -4,6 +4,7 @@ var fs = require('fs');
 var GITHUB_USER = "madebymak";
 var GITHUB_TOKEN = "958480b71aa96b2bd710ee40b90c766a8a9e2a38"
 
+
 function getRepoContributors (repoOwner, repoName, cb) {
 
   var requestURL = "https://" + GITHUB_USER + ":" + GITHUB_TOKEN + "@api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors";
@@ -21,7 +22,7 @@ function getRepoContributors (repoOwner, repoName, cb) {
   })
 };
 
-getRepoContributors("jquery", "jquery", function(result) {
+getRepoContributors(repoOwnerName, repoURL, function(result) {
   result.forEach(function (avatarBody) {
   downloadImageByURL(avatarBody.avatar_url, avatarBody.login)
   })
