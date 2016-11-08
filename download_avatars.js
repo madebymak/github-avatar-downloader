@@ -7,7 +7,21 @@ function getRepoContributors (repoOwner, repoName, cb) {
 
 var requestURL = "https://" + GITHUB_USER + ":" + GITHUB_TOKEN + "@api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors";
 
-console.log(requestURL);
+var requestOptions = {
+
+  url: requestURL,
+  headers: {
+    'User-Agent': 'request'
+  }
+
+};
+
+request(requestOptions, function(err, response, body) {
+  if (err) throw err;
+  console.log(response.body);
+});
+
+//console.log(requestURL);
 
 
 }
