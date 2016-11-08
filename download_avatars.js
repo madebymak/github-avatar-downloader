@@ -9,7 +9,7 @@ var nameRepo = process.argv[3];
 
 function getRepoContributors (repoOwner, repoName, cb) {
 
-  if (!repoUserName || !nameRepo) {
+    if (!repoUserName || !nameRepo) {
     console.log("Please enter valid GitHub name and repo!");
     return;
   }
@@ -32,6 +32,9 @@ function getRepoContributors (repoOwner, repoName, cb) {
 };
 
 getRepoContributors(repoUserName, nameRepo, function(result) {
+
+
+
   result.forEach(function (avatarBody) {
   downloadImageByURL(avatarBody.avatar_url, avatarBody.login)
   })
